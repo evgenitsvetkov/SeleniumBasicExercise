@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     triggers {
-        // Trigger on changes to the main branch
         pollSCM('* * * * *')
     }
     stages {
@@ -18,7 +17,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'dotnet build --no-restore'
+                bat 'dotnet build'
             }
         }
         stage('Run UI tests') {
